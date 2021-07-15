@@ -14,5 +14,11 @@ void main() {
 
       expect(data!.containsKey('profile'), true);
     });
+
+    test('test getWallets', () async {
+      var data = await nobitex.getWallets();
+
+      expect(data!.containsKey('wallets'), true);
+    });
   });
 }
