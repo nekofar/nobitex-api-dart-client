@@ -1,14 +1,16 @@
-# nobitex
+# Nobitex Market Dart API
 
-A new Flutter package project.
+[![Pub Version](https://img.shields.io/pub/v/nobitex.svg?logo=dart)][1]
+[![Workflow Status](https://img.shields.io/github/workflow/status/nekofar/nobitex-api-dart-client/Dart?logo=github-actions)][3]
+[![License](https://img.shields.io/github/license/nekofar/nobitex-api-dart-client.svg)][2]
+[![Twitter: nekofar](https://img.shields.io/twitter/follow/nekofar.svg?style=flat)][7]
 
-## Getting Started
+> This is a PHP wrapper for the [Nobitex API][6].
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+---
+[1]: https://pub.dev/packages/nobitex
+[2]: https://github.com/nekofar/nobitex-api-dart-client/blob/master/LICENSE
+[3]: https://github.com/nekofar/nobitex-api-dart-client/actions
+[6]: https://apidocs.nobitex.market/en/
+[7]: https://twitter.com/nekofar
