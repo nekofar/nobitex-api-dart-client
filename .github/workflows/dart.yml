@@ -26,3 +26,5 @@ jobs:
 
       - name: Run tests
         run: dart test
+        env:
+          NOBITEX_TOKEN: ${{ secrets.NOBITEX_TOKEN }}
