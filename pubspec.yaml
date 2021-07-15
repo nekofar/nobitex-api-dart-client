@@ -1,16 +1,13 @@
 name: nobitex
 description: Dart wrapper for the Nobitex API
-version: 1.0.0-alpha.0
+version: 1.0.0-alpha.1
 homepage: https://github.com/nekofar/nobitex-api-dart-client
 repository: https://github.com/nekofar/nobitex-api-dart-client
 issue_tracker: https://github.com/nekofar/nobitex-api-dart-client/issues
-
 environment:
   sdk: ">=2.12.0 <3.0.0"
-
 dependencies:
   http: ^0.13.3
-
 dev_dependencies:
   test: ^1.17.10
   lints: ^1.0.1
