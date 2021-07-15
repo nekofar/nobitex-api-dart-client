@@ -1,4 +1,11 @@
 # Changelog
+## [1.0.0-alpha.1](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-07-15)
+
+
+### Features
+
+* add new method to retrieve list of current user wallet records ([d90cd60](https://github.com/nekofar/nobitex-api-dart-client/commit/d90cd603b69f026665a7449df2e5f9ef6ecbfee5))
+
 ## 1.0.0-alpha.0 (2021-07-15)
 
 
