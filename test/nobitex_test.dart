@@ -26,5 +26,12 @@ void main() {
 
       expect(data!.containsKey('deposits'), true);
     });
+
+    test('test getWalletAddress', () async {
+      var data = await nobitex.getWalletAddress(
+          wallet: env['NOBITEX_WALLET'] as String);
+
+      expect(data!.containsKey('address'), true);
+    });
   });
 }

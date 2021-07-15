@@ -37,4 +37,13 @@ class Nobitex {
 
     return jsonDecode(response.body) as Map<String, dynamic>?;
   }
+
+  Future<Map<String, dynamic>?> getWalletAddress({required String wallet}) async {
+    var url = Uri.https(basePath, '/users/wallets/generate-address');
+
+    var response = await http.post(url,
+        headers: {'Authorization': 'Token ' + token}, body: {'wallet': wallet});
+
+    return jsonDecode(response.body) as Map<String, dynamic>?;
+  }
 }
