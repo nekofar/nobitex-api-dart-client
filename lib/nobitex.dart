@@ -28,4 +28,13 @@ class Nobitex {
 
     return jsonDecode(response.body) as Map<String, dynamic>?;
   }
+
+  Future<Map<String, dynamic>?> getWalletRecords() async {
+    var url = Uri.https(basePath, '/users/wallets/deposits/list');
+
+    var response =
+        await http.post(url, headers: {'Authorization': 'Token ' + token});
+
+    return jsonDecode(response.body) as Map<String, dynamic>?;
+  }
 }
