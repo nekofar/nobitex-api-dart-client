@@ -43,7 +43,8 @@ class Nobitex {
   }
 
   /// Generate or receive a blockchain address
-  Future<Map<String, dynamic>?> getWalletAddress({required String wallet}) async {
+  Future<Map<String, dynamic>?> getWalletAddress(
+      {required String wallet}) async {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
     var response = await http.post(url,
