@@ -1,4 +1,11 @@
 # Changelog
+## [1.0.0-alpha.3](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-07-15)
+
+
+### Features
+
+* add new method to retrieve the wallet address by its id ([3036d06](https://github.com/nekofar/nobitex-api-dart-client/commit/3036d06e058d7802a31b5a70b6f7d02634198d5a))
+
 ## [1.0.0-alpha.2](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-07-15)
 
 ## [1.0.0-alpha.1](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.0...v1.0.0-alpha.1) (2021-07-15)
