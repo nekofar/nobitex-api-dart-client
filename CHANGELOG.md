@@ -1,4 +1,11 @@
 # Changelog
+## [1.0.0-alpha.4](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-07-16)
+
+
+### Features
+
+* add a new method to receive current balance of the wallets based on currency ([92b73b8](https://github.com/nekofar/nobitex-api-dart-client/commit/92b73b802b6e3567639cb15645701eaa3d66320b))
+
 ## [1.0.0-alpha.3](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-07-15)
 
 
