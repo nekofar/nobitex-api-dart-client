@@ -28,3 +28,4 @@ jobs:
         run: dart test
         env:
           NOBITEX_TOKEN: ${{ secrets.NOBITEX_TOKEN }}
+          NOBITEX_WALLET: ${{ secrets.NOBITEX_WALLET }}
