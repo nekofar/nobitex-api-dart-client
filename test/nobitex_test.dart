@@ -33,5 +33,11 @@ void main() {
 
       expect(data!.containsKey('address'), true);
     });
+
+    test('test getWalletBalance', () async {
+      var data = await nobitex.getWalletBalance(currency: 'ltc');
+
+      expect(data!.containsKey('balance'), true);
+    });
   });
 }
