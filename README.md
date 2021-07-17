@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/github/license/nekofar/nobitex-api-dart-client.svg)][2]
 [![Twitter: nekofar](https://img.shields.io/twitter/follow/nekofar.svg?style=flat)][7]
 
-> This is a PHP wrapper for the [Nobitex API][6].
+> This is a Dart wrapper for the [Nobitex API][6].
 
 
 ---
