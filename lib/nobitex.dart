@@ -3,9 +3,11 @@ library nobitex;
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' show Client;
 
 class Nobitex {
+  Client client = Client();
+
   String basePath;
 
   String? token;
@@ -18,7 +20,7 @@ class Nobitex {
       String? totp}) async {
     var url = Uri.https(basePath, '/auth/login/');
 
-    var response = await http.post(url, headers: {
+    var response = await client.post(url, headers: {
       'X-TOTP': totp ?? ''
     }, body: {
       'username': username,
@@ -44,7 +46,7 @@ class Nobitex {
   getProfile() async {
     var url = Uri.https(basePath, '/users/profile');
 
-    var response = await http.post(url,
+    var response = await client.post(url,
         headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
     return jsonDecode(response.body);
@@ -54,7 +56,7 @@ class Nobitex {
   getWallets() async {
     var url = Uri.https(basePath, '/users/wallets/list');
 
-    var response = await http.post(url,
+    var response = await client.post(url,
         headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
     return jsonDecode(response.body);
@@ -64,7 +66,7 @@ class Nobitex {
   getWalletRecords() async {
     var url = Uri.https(basePath, '/users/wallets/deposits/list');
 
-    var response = await http.post(url,
+    var response = await client.post(url,
         headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
     return jsonDecode(response.body);
@@ -74,7 +76,7 @@ class Nobitex {
   getWalletAddress({required String wallet}) async {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
-    var response = await http.post(url,
+    var response = await client.post(url,
         headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
         body: {'wallet': wallet});
 
@@ -85,7 +87,7 @@ class Nobitex {
   getWalletBalance({required String currency}) async {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
-    var response = await http.post(url,
+    var response = await client.post(url,
         headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
         body: {'currency': currency});
 
