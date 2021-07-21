@@ -1,6 +1,7 @@
 library nobitex;
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -16,8 +17,8 @@ class Nobitex {
   getProfile() async {
     var url = Uri.https(basePath, '/users/profile');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token});
 
     return jsonDecode(response.body);
   }
@@ -26,8 +27,8 @@ class Nobitex {
   getWallets() async {
     var url = Uri.https(basePath, '/users/wallets/list');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token});
 
     return jsonDecode(response.body);
   }
@@ -36,8 +37,8 @@ class Nobitex {
   getWalletRecords() async {
     var url = Uri.https(basePath, '/users/wallets/deposits/list');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token});
 
     return jsonDecode(response.body);
   }
@@ -47,7 +48,8 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
     var response = await http.post(url,
-        headers: {'Authorization': 'Token ' + token}, body: {'wallet': wallet});
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token},
+        body: {'wallet': wallet});
 
     return jsonDecode(response.body);
   }
@@ -57,7 +59,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
     var response = await http.post(url,
-        headers: {'Authorization': 'Token ' + token},
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token},
         body: {'currency': currency});
 
     return jsonDecode(response.body);
