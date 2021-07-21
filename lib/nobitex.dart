@@ -1,67 +1,94 @@
 library nobitex;
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
 class Nobitex {
-  final String basePath;
+  String basePath;
 
-  final String token;
+  String? token;
 
-  Nobitex({this.basePath = 'api.nobitex.ir', this.token = ''});
+  Nobitex({this.basePath = 'api.nobitex.ir', this.token});
+
+  login(
+      {required String username,
+      required String password,
+      String? totp}) async {
+    var url = Uri.https(basePath, '/auth/login/');
+
+    var response = await http.post(url, headers: {
+      'X-TOTP': totp ?? ''
+    }, body: {
+      'username': username,
+      'password': password,
+      'remember': 'yes',
+      'captcha': 'api'
+    });
+
+    var result = jsonDecode(response.body);
+    if (result['status'] == null) {
+      return null;
+    } else {
+      if (result['status'] == 'success') {
+        token = result['key'];
+      } else {
+        return null;
+      }
+    }
+  }
 
   /// Returns your profile information, bank card, bank account, verifications,
   /// profile settings and summary of your transaction statistics.
-  Future<Map<String, dynamic>?> getProfile() async {
+  getProfile() async {
     var url = Uri.https(basePath, '/users/profile');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
-    return jsonDecode(response.body) as Map<String, dynamic>?;
+    return jsonDecode(response.body);
   }
 
   /// Get a list of user wallets
-  Future<Map<String, dynamic>?> getWallets() async {
+  getWallets() async {
     var url = Uri.https(basePath, '/users/wallets/list');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
-    return jsonDecode(response.body) as Map<String, dynamic>?;
+    return jsonDecode(response.body);
   }
 
   /// Receive a list of deposits and withdrawals
-  Future<Map<String, dynamic>?> getWalletRecords() async {
+  getWalletRecords() async {
     var url = Uri.https(basePath, '/users/wallets/deposits/list');
 
-    var response =
-        await http.post(url, headers: {'Authorization': 'Token ' + token});
+    var response = await http.post(url,
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
 
-    return jsonDecode(response.body) as Map<String, dynamic>?;
+    return jsonDecode(response.body);
   }
 
   /// Generate or receive a blockchain address
-  Future<Map<String, dynamic>?> getWalletAddress(
-      {required String wallet}) async {
+  getWalletAddress({required String wallet}) async {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
     var response = await http.post(url,
-        headers: {'Authorization': 'Token ' + token}, body: {'wallet': wallet});
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
+        body: {'wallet': wallet});
 
-    return jsonDecode(response.body) as Map<String, dynamic>?;
+    return jsonDecode(response.body);
   }
 
   /// Receive the balance of fiat and cryptocurrency wallets
-  Future<Map<String, dynamic>?> getWalletBalance(
-      {required String currency}) async {
+  getWalletBalance({required String currency}) async {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
     var response = await http.post(url,
-        headers: {'Authorization': 'Token ' + token},
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
         body: {'currency': currency});
 
-    return jsonDecode(response.body) as Map<String, dynamic>?;
+    return jsonDecode(response.body);
   }
 }

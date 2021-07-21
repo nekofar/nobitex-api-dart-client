@@ -6,7 +6,13 @@ import 'package:nobitex/nobitex.dart';
 void main() {
   load();
 
-  final nobitex = Nobitex(token: env['NOBITEX_TOKEN'] as String);
+  final nobitex = Nobitex(basePath: 'testnetapi.nobitex.ir');
+
+  setUp(() async {
+    await nobitex.login(
+        username: env['NOBITEX_USERNAME'].toString(),
+        password: env['NOBITEX_PASSWORD'].toString());
+  });
 
   group('tests for Nobitex', () {
     test('test getProfile', () async {
@@ -29,7 +35,7 @@ void main() {
 
     test('test getWalletAddress', () async {
       var data = await nobitex.getWalletAddress(
-          wallet: env['NOBITEX_WALLET'] as String);
+          wallet: env['NOBITEX_WALLET'].toString());
 
       expect(data!.containsKey('address'), true);
     });
