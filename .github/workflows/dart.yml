@@ -27,5 +27,5 @@ jobs:
       - name: Run tests
         run: dart test --coverage=coverage
         env:
-          NOBITEX_TOKEN: ${{ secrets.NOBITEX_TOKEN }}
-          NOBITEX_WALLET: ${{ secrets.NOBITEX_WALLET }}
+          NOBITEX_USERNAME: ${{ secrets.NOBITEX_USERNAME }}
+          NOBITEX_PASSWORD: ${{ secrets.NOBITEX_PASSWORD }}

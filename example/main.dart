@@ -5,7 +5,10 @@ void main() async {
   load();
 
   var nobitex = Nobitex();
-  var profile = await nobitex.getProfile();
+  await nobitex.login(
+      username: env['NOBITEX_USERNAME'].toString(),
+      password: env['NOBITEX_PASSWORD'].toString());
 
+  var profile = await nobitex.getProfile();
   print(profile);
 }
