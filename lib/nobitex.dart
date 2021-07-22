@@ -22,10 +22,14 @@ class Nobitex {
   Nobitex({this.basePath = 'api.nobitex.ir'});
 
   /// Receive authentication token by username and password
-  Future<Map<String, String>?> login(
+  Future<void> login(
       {required String username,
       required String password,
       String? totp}) async {
+    if (headers[HttpHeaders.authorizationHeader] != null) {
+      return;
+    }
+
     var url = Uri.https(basePath, '/auth/login/');
 
     var response = await client.post(url, headers: {
@@ -38,14 +42,8 @@ class Nobitex {
     });
 
     var result = jsonDecode(response.body);
-    if (result['status'] == null) {
-      return null;
-    } else {
-      if (result['status'] == 'success') {
-        headers[HttpHeaders.authorizationHeader] = 'Token ' + result['key'];
-      } else {
-        return null;
-      }
+    if (result['status'] != null && result['status'] == 'success') {
+      headers[HttpHeaders.authorizationHeader] = 'Token ' + result['key'];
     }
   }
 
