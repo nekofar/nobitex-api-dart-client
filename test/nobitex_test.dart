@@ -35,6 +35,40 @@ void main() {
           'Token db2055f743c1ac8c30d23278a496283b1e2dd46f');
     });
 
+    test('test getMarketStats', () async {
+      nobitex.client = MockClient((request) async {
+        return Response(
+            json.encode({
+              'stats': {
+                'btc-rls': {
+                  'bestSell': '749976360.0000000000',
+                  'isClosed': false,
+                  'dayOpen': '686021860.0000000000',
+                  'dayHigh': '750350000.0000000000',
+                  'bestBuy': '733059600.0000000000',
+                  'volumeSrc': '0.2929480000',
+                  'dayLow': '686021860.0000000000',
+                  'latest': '750350000.0000000000',
+                  'volumeDst': '212724856.0678640000',
+                  'dayChange': '9.38',
+                  'dayClose': '750350000.0000000000'
+                }
+              },
+              'status': 'ok'
+            }),
+            200,
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
+      });
+
+      var data =
+          await nobitex.getMarketStats(srcCurrency: 'btc', dstCurrency: 'rls');
+
+      expect(data!.containsKey('stats'), true);
+      expect(data['stats']['btc-rls']['isClosed'], false);
+    });
+
     test('test getProfile', () async {
       nobitex.client = MockClient((request) async {
         return Response(

@@ -57,6 +57,20 @@ class Nobitex {
     return jsonDecode(response.body);
   }
 
+  /// Returns your profile information, bank card, bank account, verifications,
+  /// profile settings and summary of your transaction statistics.
+  Future<Map<String, dynamic>?> getMarketStats(
+      {required String srcCurrency, required String dstCurrency}) async {
+    var url = Uri.https(basePath, '/market/stats');
+
+    var response = await client.post(url,
+        headers: headers,
+        body: jsonEncode(
+            {'srcCurrency': srcCurrency, 'dstCurrency': dstCurrency}));
+
+    return jsonDecode(response.body);
+  }
+
   /// Get a list of user wallets
   Future<Map<String, dynamic>?> getWallets() async {
     var url = Uri.https(basePath, '/users/wallets/list');
