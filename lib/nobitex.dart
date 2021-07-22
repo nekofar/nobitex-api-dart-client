@@ -13,8 +13,10 @@ class Nobitex {
   /// Url to use for the REST requests.
   String basePath;
 
-  /// The authentication token.
-  String? _token;
+  /// Default HTTP headers for all requests.
+  Map<String, String> headers = {
+    HttpHeaders.contentTypeHeader: 'application/json'
+  };
 
   /// Constructor of the API wrapper for communication.
   Nobitex({this.basePath = 'api.nobitex.ir'});
@@ -40,7 +42,7 @@ class Nobitex {
       return null;
     } else {
       if (result['status'] == 'success') {
-        _token = result['key'];
+        headers[HttpHeaders.authorizationHeader] = 'Token ' + result['key'];
       } else {
         return null;
       }
@@ -52,8 +54,7 @@ class Nobitex {
   Future<Map<String, dynamic>?> getProfile() async {
     var url = Uri.https(basePath, '/users/profile');
 
-    var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
+    var response = await client.post(url, headers: headers);
 
     return jsonDecode(response.body);
   }
@@ -62,8 +63,7 @@ class Nobitex {
   Future<Map<String, dynamic>?> getWallets() async {
     var url = Uri.https(basePath, '/users/wallets/list');
 
-    var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
+    var response = await client.post(url, headers: headers);
 
     return jsonDecode(response.body);
   }
@@ -72,20 +72,18 @@ class Nobitex {
   Future<Map<String, dynamic>?> getWalletRecords() async {
     var url = Uri.https(basePath, '/users/wallets/deposits/list');
 
-    var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
+    var response = await client.post(url, headers: headers);
 
     return jsonDecode(response.body);
   }
 
   /// Generate or receive a blockchain address
-  Future<Map<String, String>?> getWalletAddress(
+  Future<Map<String, dynamic>?> getWalletAddress(
       {required String wallet}) async {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!},
-        body: {'wallet': wallet});
+        headers: headers, body: jsonEncode({'wallet': wallet}));
 
     return jsonDecode(response.body);
   }
@@ -96,8 +94,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!},
-        body: {'currency': currency});
+        headers: headers, body: jsonEncode({'currency': currency}));
 
     return jsonDecode(response.body);
   }
