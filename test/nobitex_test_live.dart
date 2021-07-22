@@ -14,11 +14,4 @@ void testLive() {
         password: env['NOBITEX_PASSWORD'].toString());
   });
 
-  group('live tests for Nobitex', () {
-    test('test getWalletBalance', () async {
-      var data = await nobitex.getWalletBalance(currency: 'ltc');
-
-      expect(data!.containsKey('balance'), true);
-    });
-  });
 }

@@ -187,5 +187,22 @@ void testMock() {
       expect(data!.containsKey('address'), true);
       expect(data['address'], 'LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs');
     });
+
+    test('test getWalletBalance', () async {
+      nobitex.client = MockClient((request) async {
+        return Response(
+            json.encode({
+              'balance': '10.2649975000',
+              'status': 'ok'
+            }),
+            200,
+            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+      });
+
+      var data = await nobitex.getWalletBalance(currency: 'ltc');
+
+      expect(data!.containsKey('balance'), true);
+      expect(data['balance'], '10.2649975000');
+    });
   });
 }
