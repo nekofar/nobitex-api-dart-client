@@ -37,3 +37,11 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
+
+      - name: Publish the dart package
+          uses: sakebook/actions-flutter-pub-publisher@v1.3.1
+          with:
+            credential: ${{ secrets.CREDENTIAL_JSON }}
+            flutter_package: false
+            skip_test: true
+            dry_run: false
