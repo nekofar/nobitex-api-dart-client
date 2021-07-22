@@ -1,4 +1,11 @@
 # Changelog
+## [1.0.0-alpha.13](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2021-07-22)
+
+
+### Features
+
+* add new method to get market stats ([9660780](https://github.com/nekofar/nobitex-api-dart-client/commit/9660780c0f2f146870a72b3b24f8826001cb3913))
+
 ## [1.0.0-alpha.12](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2021-07-22)
 
 ## [1.0.0-alpha.10](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-07-22)
