@@ -14,6 +14,27 @@ void main() {
   final nobitex = Nobitex();
 
   group('tests for Nobitex', () {
+    test('test login', () async {
+      nobitex.client = MockClient((request) async {
+        return Response(
+            json.encode({
+              'status': 'success',
+              'key': 'db2055f743c1ac8c30d23278a496283b1e2dd46f',
+              'device': 'AlRyansW'
+            }),
+            200,
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
+      });
+
+      await nobitex.login(
+          username: 'name@example.com', password: 'secret-password-1234');
+
+      expect(nobitex.headers[HttpHeaders.authorizationHeader],
+          'Token db2055f743c1ac8c30d23278a496283b1e2dd46f');
+    });
+
     test('test getProfile', () async {
       nobitex.client = MockClient((request) async {
         return Response(
