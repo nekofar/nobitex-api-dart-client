@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:dotenv/dotenv.dart' show load;
@@ -17,11 +18,11 @@ void testMock() {
       nobitex.client = MockClient((request) async {
         return Response(
             json.encode({
-              "status": "ok",
-              "address": "LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs"
+              'status': 'ok',
+              'address': 'LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs'
             }),
             200,
-            headers: {'content-type': 'application/json'});
+            headers: {HttpHeaders.contentTypeHeader: 'application/json'});
       });
 
       var data = await nobitex.getWalletAddress(wallet: '4159');
