@@ -10,9 +10,9 @@ class Nobitex {
 
   String basePath;
 
-  String? token;
+  String? _token;
 
-  Nobitex({this.basePath = 'api.nobitex.ir', this.token});
+  Nobitex({this.basePath = 'api.nobitex.ir'});
 
   /// Receive authentication token by username and password
   Future<Map<String, String>?> login(
@@ -35,7 +35,7 @@ class Nobitex {
       return null;
     } else {
       if (result['status'] == 'success') {
-        token = result['key'];
+        _token = result['key'];
       } else {
         return null;
       }
@@ -48,7 +48,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/profile');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
 
     return jsonDecode(response.body);
   }
@@ -58,7 +58,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/list');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
 
     return jsonDecode(response.body);
   }
@@ -68,7 +68,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/deposits/list');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!});
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!});
 
     return jsonDecode(response.body);
   }
@@ -79,7 +79,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/generate-address');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!},
         body: {'wallet': wallet});
 
     return jsonDecode(response.body);
@@ -91,7 +91,7 @@ class Nobitex {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
     var response = await client.post(url,
-        headers: {HttpHeaders.authorizationHeader: 'Token ' + token!},
+        headers: {HttpHeaders.authorizationHeader: 'Token ' + _token!},
         body: {'currency': currency});
 
     return jsonDecode(response.body);
