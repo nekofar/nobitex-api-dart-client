@@ -1,4 +1,6 @@
 # Changelog
+## [1.0.0-alpha.12](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2021-07-22)
+
 ## [1.0.0-alpha.10](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2021-07-22)
 
 ## [1.0.0-alpha.9](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2021-07-22)
