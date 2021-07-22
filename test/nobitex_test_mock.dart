@@ -92,6 +92,36 @@ void testMock() {
       expect(data['profile']['email'], 'name@example.com');
     });
 
+    test('test getWallets', () async {
+      nobitex.client = MockClient((request) async {
+        return Response(
+            json.encode({
+              'status': 'ok',
+              'wallets': [
+                {
+                  'activeBalance': '10.2649975000',
+                  'blockedBalance': '0',
+                  'user': 'name@example.com',
+                  'currency': 'ltc',
+                  'id': 4159,
+                  'balance': '10.2649975000',
+                  'rialBalance': 51322935,
+                  'rialBalanceSell': 52507310,
+                  'depositAddress': null
+                },
+              ]
+            }
+            ),
+            200,
+            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+      });
+
+      var data = await nobitex.getWallets();
+
+      expect(data!.containsKey('wallets'), true);
+      expect(data['wallets'][0]['rialBalance'], 51322935);
+    });
+
     test('test getWalletAddress', () async {
       nobitex.client = MockClient((request) async {
         return Response(

@@ -15,12 +15,6 @@ void testLive() {
   });
 
   group('live tests for Nobitex', () {
-    test('test getWallets', () async {
-      var data = await nobitex.getWallets();
-
-      expect(data!.containsKey('wallets'), true);
-    });
-
     test('test getWalletRecords', () async {
       var data = await nobitex.getWalletRecords();
 
