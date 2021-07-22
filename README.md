@@ -1,16 +1,16 @@
 # Nobitex Market Dart API
 
-[![Pub Version](https://img.shields.io/pub/v/nobitex.svg?logo=dart)][1]
-[![Workflow Status](https://img.shields.io/github/workflow/status/nekofar/nobitex-api-dart-client/Dart?logo=github-actions)][3]
-[![License](https://img.shields.io/github/license/nekofar/nobitex-api-dart-client.svg)][2]
-[![Twitter: nekofar](https://img.shields.io/twitter/follow/nekofar.svg?style=flat)][7]
+[![Pub Version](https://img.shields.io/pub/v/nobitex.svg?logo=dart)][homepage]
+[![Workflow Status](https://img.shields.io/github/workflow/status/nekofar/nobitex-api-dart-client/Dart?logo=github-actions)][workflow]
+[![License](https://img.shields.io/github/license/nekofar/nobitex-api-dart-client.svg)][license]
+[![Twitter: nekofar](https://img.shields.io/twitter/follow/nekofar.svg?style=flat)][twitter]
 
-> This is a PHP wrapper for the [Nobitex API][6].
+> This is a Dart wrapper for the [Nobitex API][apidocs].
 
 
 ---
-[1]: https://pub.dev/packages/nobitex
-[2]: https://github.com/nekofar/nobitex-api-dart-client/blob/master/LICENSE
-[3]: https://github.com/nekofar/nobitex-api-dart-client/actions
-[6]: https://apidocs.nobitex.market/en/
-[7]: https://twitter.com/nekofar
+[homepage]: https://pub.dev/packages/nobitex
+[license]: https://github.com/nekofar/nobitex-api-dart-client/blob/master/LICENSE
+[workflow]: https://github.com/nekofar/nobitex-api-dart-client/actions
+[apidocs]: https://apidocs.nobitex.market/en/
+[twitter]: https://twitter.com/nekofar
