@@ -29,3 +29,11 @@ jobs:
         env:
           NOBITEX_USERNAME: ${{ secrets.NOBITEX_USERNAME }}
           NOBITEX_PASSWORD: ${{ secrets.NOBITEX_PASSWORD }}
+
+      - name: Collect test coverage
+        run: dart run coverage:format_coverage --lcov --in=coverage --packages=.packages --out=coverage/lcov.info --report-on=lib
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info

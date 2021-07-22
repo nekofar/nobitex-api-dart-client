@@ -12,3 +12,4 @@ dev_dependencies:
   test: ^1.17.10
   lints: ^1.0.1
   dotenv: ^3.0.0
+  coverage: ^1.0.3
