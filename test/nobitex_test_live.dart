@@ -15,12 +15,6 @@ void testLive() {
   });
 
   group('live tests for Nobitex', () {
-    test('test getProfile', () async {
-      var data = await nobitex.getProfile();
-
-      expect(data!.containsKey('profile'), true);
-    });
-
     test('test getWallets', () async {
       var data = await nobitex.getWallets();
 
