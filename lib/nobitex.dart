@@ -5,13 +5,18 @@ import 'dart:io';
 
 import 'package:http/http.dart' show Client;
 
+/// Wrapper class for Nobitex REST API.
 class Nobitex {
+  /// HTTP client that is used for the communication over the REST API.
   Client client = Client();
 
+  /// Url to use for the REST requests.
   String basePath;
 
+  /// The authentication token.
   String? _token;
 
+  /// Constructor of the API wrapper for communication.
   Nobitex({this.basePath = 'api.nobitex.ir'});
 
   /// Receive authentication token by username and password
