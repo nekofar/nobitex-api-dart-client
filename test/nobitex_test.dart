@@ -83,7 +83,9 @@ void main() {
               }
             }),
             200,
-            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
       });
 
       var data = await nobitex.getProfile();
@@ -110,10 +112,11 @@ void main() {
                   'depositAddress': null
                 },
               ]
-            }
-            ),
+            }),
             200,
-            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
       });
 
       var data = await nobitex.getWallets();
@@ -129,19 +132,22 @@ void main() {
               'status': 'ok',
               'deposits': [
                 {
-                  'txHash': 'c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
+                  'txHash':
+                      'c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
                   'address': '32KfyTNh162UoKithfDrWHZPYq5uePGmf7',
                   'confirmed': true,
                   'transaction': {
                     'id': 10,
                     'amount': '3.0000000000',
                     'currency': 'btc',
-                    'description': 'Deposit - address:36n452uGq1x4mK7bfyZR8wgE47AnBb2pzi, tx:c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
+                    'description':
+                        'Deposit - address:36n452uGq1x4mK7bfyZR8wgE47AnBb2pzi, tx:c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
                     'created_at': '2018-11-06T03:56:18+00:00',
                     'calculatedFee': '0'
                   },
                   'currency': 'Bitcoin',
-                  'blockchainUrl': 'https://btc.com/c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
+                  'blockchainUrl':
+                      'https://btc.com/c5d84268a0bf02307b5a0460a68b61987a9b3009d3a82a817e41558e619ec1d2',
                   'confirmations': 2,
                   'requiredConfirmations': 3,
                   'amount': '3.0000000000'
@@ -150,7 +156,8 @@ void main() {
               'withdraws': [
                 {
                   'id': 2398,
-                  'blockchain_url': 'https://live.blockcypher.com/ltc/tx/c1ed4229e598d4cf81e99e79fb06294a70af39443e2639e22c69bc30d6ecda67/',
+                  'blockchain_url':
+                      'https://live.blockcypher.com/ltc/tx/c1ed4229e598d4cf81e99e79fb06294a70af39443e2639e22c69bc30d6ecda67/',
                   'is_cancelable': false,
                   'status': 'Done',
                   'amount': '1.0000000000',
@@ -162,7 +169,9 @@ void main() {
               ]
             }),
             200,
-            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
       });
 
       var data = await nobitex.getWalletRecords();
@@ -179,7 +188,9 @@ void main() {
               'address': 'LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs'
             }),
             200,
-            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
       });
 
       var data = await nobitex.getWalletAddress(wallet: '4159');
@@ -191,12 +202,10 @@ void main() {
     test('test getWalletBalance', () async {
       nobitex.client = MockClient((request) async {
         return Response(
-            json.encode({
-              'balance': '10.2649975000',
-              'status': 'ok'
-            }),
-            200,
-            headers: {HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'});
+            json.encode({'balance': '10.2649975000', 'status': 'ok'}), 200,
+            headers: {
+              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
+            });
       });
 
       var data = await nobitex.getWalletBalance(currency: 'ltc');
