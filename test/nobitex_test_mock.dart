@@ -28,6 +28,7 @@ void testMock() {
       var data = await nobitex.getWalletAddress(wallet: '4159');
 
       expect(data!.containsKey('address'), true);
+      expect(data['address'], 'LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs');
     });
   });
 }
