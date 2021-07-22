@@ -86,7 +86,7 @@ class Nobitex {
   }
 
   /// Receive the balance of fiat and cryptocurrency wallets
-  Future<Map<String, String>?> getWalletBalance(
+  Future<Map<String, dynamic>?> getWalletBalance(
       {required String currency}) async {
     var url = Uri.https(basePath, '/users/wallets/balance');
 
