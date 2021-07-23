@@ -1,5 +1,5 @@
 name: nobitex
-version: 1.0.0-alpha.13
+version: 1.0.0-alpha.14
 description: This is a Dart wrapper for the Nobitex exchange platform API.
 homepage: https://github.com/nekofar/nobitex-api-dart-client
 repository: https://github.com/nekofar/nobitex-api-dart-client
