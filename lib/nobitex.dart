@@ -1,7 +1,6 @@
 library nobitex;
 
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart' show Client;
 
@@ -14,9 +13,7 @@ class Nobitex {
   String basePath;
 
   /// Default HTTP headers for all requests.
-  Map<String, String> headers = {
-    HttpHeaders.contentTypeHeader: 'application/json'
-  };
+  Map<String, String> headers = {'content-type': 'application/json'};
 
   /// Constructor of the API wrapper for communication.
   Nobitex({this.basePath = 'api.nobitex.ir'});
@@ -26,7 +23,7 @@ class Nobitex {
       {required String username,
       required String password,
       String? totp}) async {
-    if (headers[HttpHeaders.authorizationHeader] != null) {
+    if (headers['authorization'] != null) {
       return;
     }
 
@@ -43,7 +40,7 @@ class Nobitex {
 
     var result = jsonDecode(response.body);
     if (result['status'] != null && result['status'] == 'success') {
-      headers[HttpHeaders.authorizationHeader] = 'Token ' + result['key'];
+      headers['authorization'] = 'Token ' + result['key'];
     }
   }
 
