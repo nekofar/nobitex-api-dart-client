@@ -1,4 +1,11 @@
 # Changelog
+## [1.0.0-alpha.14](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2021-07-23)
+
+
+### Bug Fixes
+
+* remove dart io package due to compatibility issues ([f705ae8](https://github.com/nekofar/nobitex-api-dart-client/commit/f705ae8bb330f95cdd45c8979fa0dd4dacbed8c7))
+
 ## [1.0.0-alpha.13](https://github.com/nekofar/nobitex-api-dart-client/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2021-07-22)
 
 

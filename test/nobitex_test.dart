@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:test/test.dart';
 import 'package:dotenv/dotenv.dart' show load;
@@ -23,15 +22,13 @@ void main() {
               'device': 'AlRyansW'
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       await nobitex.login(
           username: 'name@example.com', password: 'secret-password-1234');
 
-      expect(nobitex.headers[HttpHeaders.authorizationHeader],
+      expect(nobitex.headers['authorization'],
           'Token db2055f743c1ac8c30d23278a496283b1e2dd46f');
     });
 
@@ -57,9 +54,7 @@ void main() {
               'status': 'ok'
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data =
@@ -138,9 +133,7 @@ void main() {
               }
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data = await nobitex.getProfile();
@@ -169,9 +162,7 @@ void main() {
               ]
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data = await nobitex.getWallets();
@@ -224,9 +215,7 @@ void main() {
               ]
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data = await nobitex.getWalletRecords();
@@ -243,9 +232,7 @@ void main() {
               'address': 'LRf3vuTMy4UwD5b72G84hmkfGBQYJeTwUs'
             }),
             200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data = await nobitex.getWalletAddress(wallet: '4159');
@@ -258,9 +245,7 @@ void main() {
       nobitex.client = MockClient((request) async {
         return Response(
             json.encode({'balance': '10.2649975000', 'status': 'ok'}), 200,
-            headers: {
-              HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8'
-            });
+            headers: {'content-type': 'application/json; charset=utf-8'});
       });
 
       var data = await nobitex.getWalletBalance(currency: 'ltc');
