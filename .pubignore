@@ -9,6 +9,8 @@
 .history
 .svn/
 .env
+.github/
+analysis_options.yaml
 coverage/
 
 # IntelliJ related
