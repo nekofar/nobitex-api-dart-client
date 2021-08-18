@@ -3,6 +3,7 @@
 [![Pub Version][icon-version]][link-homepage]
 [![Workflow Status][icon-workflow]][link-workflow]
 [![Coverage Status][icon-codecov]][link-codecov]
+[![Style: lint][icon-style]][link-style]
 [![License][icon-license]][link-license]
 [![Twitter: nekofar][icon-twitter]][link-twitter]
 
@@ -15,6 +16,7 @@
 [icon-codecov]: https://codecov.io/gh/nekofar/nobitex-api-dart-client/graph/badge.svg?style=flat
 [icon-license]: https://img.shields.io/github/license/nekofar/nobitex-api-dart-client.svg?style=flat
 [icon-twitter]: https://img.shields.io/twitter/follow/nekofar.svg?style=flat
+[icon-style]: https://img.shields.io/badge/style-lint-4BC0F5.svg
 
 [link-homepage]: https://pub.dev/packages/nobitex
 [link-license]: LICENSE.md
@@ -22,3 +24,4 @@
 [link-apidocs]: https://apidocs.nobitex.market/en/
 [link-twitter]: https://twitter.com/nekofar
 [link-codecov]: https://codecov.io/gh/nekofar/nobitex-api-dart-client
+[link-style]: https://pub.dev/packages/lint
