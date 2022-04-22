@@ -33,7 +33,7 @@ jobs:
       - name: Collect test coverage
         run: dart run coverage:format_coverage --lcov --in=coverage --packages=.packages --out=coverage/lcov.info --report-on=lib
 
-      - uses: codecov/codecov-action@v3.0.0
+      - uses: codecov/codecov-action@v3.1.0
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info
