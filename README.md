@@ -6,6 +6,8 @@
 [![Style: lint][icon-style]][link-style]
 [![License][icon-license]][link-license]
 [![Twitter: nekofar][icon-twitter]][link-twitter]
+[![Donate](https://img.shields.io/badge/donate-nekofar.crypto-a2b9bc?logo=ko-fi&logoColor=white)](https://ud.me/nekofar.crypto)
+
 
 > This is a Dart wrapper for the [Nobitex API][link-apidocs].
 
